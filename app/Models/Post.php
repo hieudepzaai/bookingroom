@@ -50,12 +50,16 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereWardId($value)
  * @mixin \Eloquent
+ * @property int|null $category_id
+ * @method static \Database\Factories\PostFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereCategoryId($value)
  */
 class Post extends Model
 {
     use HasFactory;
+
     protected $table = 'post';
-    protected $fillable = [	'id',	'title',	'description',	'type',	'street_id',	'ward_id',
-        'district_id',	'province_id',	'address_detail',	'price',	'price_type',	'is_disabled' ,'area',
-        'priority' , 'expired_at',	'deposit_amount',	'status',	'created_at',	'created_by' ];
+    protected $guarded = [];
+    public $timestamps = false;
 }
+

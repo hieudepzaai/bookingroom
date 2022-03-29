@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\address;
+namespace App\Http\Controllers\BackEnd\address;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class ProvinceController extends Controller
 {

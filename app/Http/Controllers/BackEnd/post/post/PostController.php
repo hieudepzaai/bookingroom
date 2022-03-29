@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\post\post;
+namespace App\Http\Controllers\BackEnd\post\post;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ICrudController;

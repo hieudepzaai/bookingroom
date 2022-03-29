@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\post\post;
+namespace App\Http\Controllers\BackEnd\post\post;
 
 class AddPostController
 {

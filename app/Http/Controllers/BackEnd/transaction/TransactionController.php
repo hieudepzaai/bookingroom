@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\transaction;
+namespace App\Http\Controllers\BackEnd\transaction;
 
 use App\Http\Controllers\Controller;
 

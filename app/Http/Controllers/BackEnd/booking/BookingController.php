@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\booking;
+namespace App\Http\Controllers\BackEnd\booking;
 
 class BookingController
 {

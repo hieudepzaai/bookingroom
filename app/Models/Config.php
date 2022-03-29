@@ -12,8 +12,12 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Config newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Config query()
  * @mixin \Eloquent
+ * @method static \Database\Factories\ConfigFactory factory(...$parameters)
  */
 class Config extends Model
 {
     use HasFactory;
+    protected $table = 'config';
+    protected $guarded = [];
+    public $timestamps = false;
 }

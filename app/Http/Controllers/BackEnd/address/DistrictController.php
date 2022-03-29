@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\address;
+namespace App\Http\Controllers\BackEnd\address;
 
 use App\Http\Controllers\Controller;
 use App\Repository\address\district\DistrictRepositoryInterface;
-use Illuminate\Http\Request;
+use function view;
 
 class DistrictController extends Controller
 {
@@ -15,7 +15,7 @@ class DistrictController extends Controller
         $this->repo = $districtRepository;
     }
     public function index(){
-        return view('admin.layout.mainLayout');
+        return view('backend.layout.mainLayout');
     }
     public function getAll() {
         return $this->repo->getAll();

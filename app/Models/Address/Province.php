@@ -16,4 +16,7 @@ use Illuminate\Database\Eloquent\Model;
 class Province extends Model
 {
     use HasFactory;
+    protected $table = 'province';
+    protected $guarded = [];
+    public $timestamps = false;
 }

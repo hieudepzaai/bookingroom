@@ -25,7 +25,7 @@ class District extends Model
 {
     use HasFactory;
     protected $table = 'district';
-    protected $fillable = ['id' , 'name' , 'prefix' , 'province_id'];
+    protected $guarded = [];
     public $timestamps = false;
 
 }

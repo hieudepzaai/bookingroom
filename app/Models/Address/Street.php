@@ -16,4 +16,7 @@ use Illuminate\Database\Eloquent\Model;
 class Street extends Model
 {
     use HasFactory;
+    protected $table = 'street';
+    protected $guarded = [];
+    public $timestamps = false;
 }
