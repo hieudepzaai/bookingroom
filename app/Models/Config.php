@@ -1,23 +1,33 @@
 <?php
 
+/**
+ * Created by Reliese Model.
+ */
+
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\Config
+ * Class Config
+ * 
+ * @property int $id
+ * @property string $key
+ * @property string|null $description
+ * @property string $value
+ * @property Carbon $created_at
  *
- * @method static \Illuminate\Database\Eloquent\Builder|Config newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Config newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Config query()
- * @mixin \Eloquent
- * @method static \Database\Factories\ConfigFactory factory(...$parameters)
+ * @package App\Models
  */
 class Config extends Model
 {
-    use HasFactory;
-    protected $table = 'config';
-    protected $guarded = [];
-    public $timestamps = false;
+	protected $table = 'config';
+	public $timestamps = false;
+
+	protected $fillable = [
+		'key',
+		'description',
+		'value'
+	];
 }
