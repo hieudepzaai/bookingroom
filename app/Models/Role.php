@@ -6,28 +6,30 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Config
+ * Class Role
  * 
  * @property int $id
- * @property string $key
+ * @property string|null $name
+ * @property int|null $slug
  * @property string|null $description
- * @property string $value
- * @property Carbon $created_at
  *
  * @package App\Models
  */
-class Config extends Model
+class Role extends Model
 {
-	protected $table = 'config';
+	protected $table = 'role';
 	public $timestamps = false;
 
+	protected $casts = [
+		'slug' => 'int'
+	];
+
 	protected $fillable = [
-		'key',
-		'description',
-		'value'
+		'name',
+		'slug',
+		'description'
 	];
 }

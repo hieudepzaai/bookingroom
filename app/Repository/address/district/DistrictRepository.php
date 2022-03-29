@@ -2,7 +2,7 @@
 
 namespace App\Repository\address\district;
 
-use App\Models\Address\District;
+use App\Models\District;
 use Illuminate\Database\Eloquent\Model;
 
 class DistrictRepository implements DistrictRepositoryInterface
@@ -14,12 +14,12 @@ class DistrictRepository implements DistrictRepositoryInterface
         $this->model =  $model;
     }
 
-    public function create($data): Model|District
+    public function create($data)
     {
         return $this->model->create($data);
     }
 
-    public function get($id): Model|\Illuminate\Database\Eloquent\Collection|array|District
+    public function get($id)
     {
         return $this->model->findOrFail($id);
     }

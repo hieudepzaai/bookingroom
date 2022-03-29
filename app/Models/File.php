@@ -10,33 +10,35 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class History
+ * Class File
  * 
  * @property int $id
- * @property string|null $type
- * @property int|null $booking_id
- * @property string|null $status
+ * @property int|null $file_name
+ * @property string|null $file_type
+ * @property string|null $file_ext
+ * @property string|null $path
+ * @property string|null $source
  * @property Carbon|null $created_at
  * @property int|null $created_by
- * @property string|null $note
  *
  * @package App\Models
  */
-class History extends Model
+class File extends Model
 {
-	protected $table = 'history';
+	protected $table = 'file';
 	public $timestamps = false;
 
 	protected $casts = [
-		'booking_id' => 'int',
+		'file_name' => 'int',
 		'created_by' => 'int'
 	];
 
 	protected $fillable = [
-		'type',
-		'booking_id',
-		'status',
-		'created_by',
-		'note'
+		'file_name',
+		'file_type',
+		'file_ext',
+		'path',
+		'source',
+		'created_by'
 	];
 }

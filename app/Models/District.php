@@ -9,23 +9,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class PostCategory
+ * Class District
  * 
  * @property int $id
  * @property string|null $name
- * @property string|null $desciption
- * @property string|null $category_img
+ * @property string|null $prefix
+ * @property int|null $province_id
  *
  * @package App\Models
  */
-class PostCategory extends Model
+class District extends Model
 {
-	protected $table = 'post_category';
+	protected $table = 'district';
 	public $timestamps = false;
+
+	protected $casts = [
+		'province_id' => 'int'
+	];
 
 	protected $fillable = [
 		'name',
-		'desciption',
-		'category_img'
+		'prefix',
+		'province_id'
 	];
 }

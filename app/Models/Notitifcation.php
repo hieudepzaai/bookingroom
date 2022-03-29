@@ -10,29 +10,30 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class PostComment
+ * Class Notitifcation
  * 
  * @property int $id
- * @property int|null $created_by
- * @property string|null $content
- * @property int|null $post_id
+ * @property int $user_id
+ * @property string $content
+ * @property string $status
  * @property Carbon|null $created_at
+ * @property string $notification_type
  *
  * @package App\Models
  */
-class PostComment extends Model
+class Notitifcation extends Model
 {
-	protected $table = 'post_comment';
+	protected $table = 'notitifcation';
 	public $timestamps = false;
 
 	protected $casts = [
-		'created_by' => 'int',
-		'post_id' => 'int'
+		'user_id' => 'int'
 	];
 
 	protected $fillable = [
-		'created_by',
+		'user_id',
 		'content',
-		'post_id'
+		'status',
+		'notification_type'
 	];
 }
