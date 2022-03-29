@@ -12,15 +12,15 @@
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body class="sb-nav-fixed">
-@include('admin.layout.top-nav')
+@include('backend.layout.top-nav')
 <div id="layoutSidenav">
-@include('admin.layout.side-nav')
+@include('backend.layout.side-nav')
     <div id="layoutSidenav_content">
-        @include('admin.layout.main-content')
-        @include('admin.layout.footer')
+        @include('backend.layout.main-content')
+        @include('backend.layout.footer')
     </div>
 </div>
 
-@include('admin.layout.script')
+@include('backend.layout.script')
 </body>
 </html>

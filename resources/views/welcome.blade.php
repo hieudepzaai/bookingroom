@@ -1,1 +1,1 @@
-@extends("admin.layout.mainLayout")
+@extends("backend.layout.mainLayout")
