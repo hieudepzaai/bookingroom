@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Booking
- * 
+ *
  * @property int $id
  * @property int $room_id
  * @property int $booking_user_id
@@ -23,6 +23,7 @@ use Illuminate\Database\Eloquent\Model;
 class Booking extends Model
 {
 	protected $table = 'booking';
+
 	public $timestamps = false;
 
 	protected $casts = [
