@@ -4,7 +4,7 @@ namespace App\Http\Controllers\BackEnd\PostCategory;
 
 use App\Http\Controllers\Controller;
 use App\Models\PostCategory;
-use App\Repository\PostCategoryRepository\PostCategoryRepositoryInterface;
+use App\Repository\Category\PostCategoryRepositoryInterface;
 
 class PostCategoryController extends Controller
 {

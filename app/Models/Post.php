@@ -55,6 +55,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereWardId($value)
  * @mixin \Eloquent
+ * @property int|null $number_of_unit
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereNumberOfUnit($value)
+ * @property int|null $price_type_id
+ * @method static \Illuminate\Database\Eloquent\Builder|Post wherePriceTypeId($value)
  */
 class Post extends Model
 {

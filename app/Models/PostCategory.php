@@ -24,6 +24,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|PostCategory whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PostCategory whereName($value)
  * @mixin \Eloquent
+ * @property string|null $description
+ * @method static \Illuminate\Database\Eloquent\Builder|PostCategory whereDescription($value)
  */
 class PostCategory extends Model
 {

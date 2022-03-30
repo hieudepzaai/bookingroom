@@ -22,6 +22,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|PostPremiumType wherePremiumType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PostPremiumType wherePriority($value)
  * @mixin \Eloquent
+ * @property float|null $price_per_unit
+ * @property string|null $unit
+ * @method static \Illuminate\Database\Eloquent\Builder|PostPremiumType wherePricePerUnit($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PostPremiumType whereUnit($value)
  */
 class PostPremiumType extends Model
 {

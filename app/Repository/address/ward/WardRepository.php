@@ -20,6 +20,9 @@ class WardRepository implements  WardRepositoryInterface
 
     public function getWardByDistrictId($id)
     {
-        return $this->model->whereDistrictId($id)->get();
+//        return $this->model->whereDistrictId($id)->get();
+        return cache()->remember('wards-cache', 60*60*24 , function () use ($id) {
+            return $this->model->whereDistrictId($id)->get();
+        });
     }
 }

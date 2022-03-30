@@ -19,7 +19,10 @@ class ProvinceRepository implements  ProvinceRepositoryInterface
 
     public function getAll()
     {
-        return $this->model->select(['id' , 'name'])->get();
+//        return $this->model->select(['id' , 'name'])->get();
+        return cache()->remember('provinces-cache', 60*60*24 , function ()  {
+            return $this->model->select(['id' , 'name'])->get();
+        });
     }
 
     public function getByName($name)

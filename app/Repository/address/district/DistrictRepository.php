@@ -32,7 +32,11 @@ class DistrictRepository implements DistrictRepositoryInterface
 
     public function getDistrictByProvinceId($id)
     {
-        return $this->model->whereProvinceId( $id)->get();
+
+//        return $this->model->whereProvinceId( $id)->get();
+        return cache()->remember('districts-cache-'.$id, 60*60*24 , function () use ($id) {
+            return $this->model->whereProvinceId( $id)->get();
+        });
 
     }
 }

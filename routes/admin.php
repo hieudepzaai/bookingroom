@@ -26,5 +26,6 @@ Route::get('ward/getWardByDistrictId/{id}', [\App\Http\Controllers\BackEnd\addre
 Route::get('street/getByName', [\App\Http\Controllers\BackEnd\address\StreetController::class , 'getStreetByName'])->name('street.getByName');
 
 Route::get('categories', [\App\Http\Controllers\BackEnd\PostCategory\PostCategoryController::class, 'getAll'])->name('category.getAll');
+Route::get('config', [\App\Http\Controllers\BackEnd\Config\ConfigController::class, 'getConfig']);
 
 

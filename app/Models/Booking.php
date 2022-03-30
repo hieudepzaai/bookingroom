@@ -27,6 +27,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Booking whereRoomId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Booking whereStatus($value)
  * @mixin \Eloquent
+ * @property int $post_id
+ * @method static \Illuminate\Database\Eloquent\Builder|Booking wherePostId($value)
  */
 class Booking extends Model
 {

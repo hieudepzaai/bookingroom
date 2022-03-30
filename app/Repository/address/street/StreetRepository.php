@@ -15,13 +15,14 @@ class StreetRepository implements  StreetRepositoryInterface
     public function getById($id)
     {
         return $this->model->findOrFail($id);
-
     }
 
 
     public function getStreetByName($name)
     {
-        return $this->model->where('name' , 'like' , '%'.$name.'%')->limit(20)->get();
+//        return $this->model->where('name' , 'like' , $name.'%')->limit(20)->get();
+        return $this->model->select(['id','name'])->whereRaw("MATCH(name) AGAINST( ? IN BOOLEAN MODE)" ,$name)->limit(100)->get();
+
 
     }
 }

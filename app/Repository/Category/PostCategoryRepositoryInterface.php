@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository\PostCategoryRepository;
+namespace App\Repository\Category;
 
 interface PostCategoryRepositoryInterface
 {
