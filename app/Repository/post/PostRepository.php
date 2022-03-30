@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class PostRepository implements PostRepositoryInterface
 {
     protected $model;
-    public function __construct(Model $model)
+    public function __construct(Post $model)
     {
         $this->model =  $model;
     }

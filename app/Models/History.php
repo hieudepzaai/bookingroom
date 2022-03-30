@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class History
- * 
+ *
  * @property int $id
  * @property string|null $type
  * @property int|null $booking_id
@@ -19,8 +19,18 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $created_at
  * @property int|null $created_by
  * @property string|null $note
- *
  * @package App\Models
+ * @method static \Illuminate\Database\Eloquent\Builder|History newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|History newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|History query()
+ * @method static \Illuminate\Database\Eloquent\Builder|History whereBookingId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|History whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|History whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|History whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|History whereNote($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|History whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|History whereType($value)
+ * @mixin \Eloquent
  */
 class History extends Model
 {

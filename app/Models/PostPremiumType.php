@@ -10,12 +10,18 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class PostPremiumType
- * 
+ *
  * @property int $id
  * @property string $premium_type
  * @property int $priority
- *
  * @package App\Models
+ * @method static \Illuminate\Database\Eloquent\Builder|PostPremiumType newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|PostPremiumType newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|PostPremiumType query()
+ * @method static \Illuminate\Database\Eloquent\Builder|PostPremiumType whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PostPremiumType wherePremiumType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PostPremiumType wherePriority($value)
+ * @mixin \Eloquent
  */
 class PostPremiumType extends Model
 {

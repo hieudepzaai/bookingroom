@@ -17,6 +17,7 @@
 @include('backend.layout.side-nav')
     <div id="layoutSidenav_content">
         @include('backend.layout.main-content')
+
         @include('backend.layout.footer')
     </div>
 </div>
