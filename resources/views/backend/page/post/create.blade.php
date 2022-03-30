@@ -222,44 +222,74 @@
         $('#district_id').on('change', function (e) {
             $('#ward_id').val(null).trigger("change");
             $('#street_id').val(null).trigger("change");
-        });
+            // Do something
+            console.log("change")
+            // $('#district_id').select2("destroy");
 
+            $('#ward_id').empty();
+            $('#street_id').val(null).trigger("change");
 
-        $('#ward_id').select2({
-            minimumInputLength: 2,
-            placeholder: 'Please select',
-            allowClear: true,
-            ajax: {
-                url: function () {
-                    let district = $('#district_id').select2('data')[0];
-                    if (district == undefined || district == null || district == "") {
-                        console.log("please select district and city");
-                        return;
-                    }
-                    // console.log(district)
-                    return '/admin/ward/getWardByDistrictId/' + district.id;
-                },
-                delay: 0,
-                quietMillis: 0,
-                method: "get",
+            let district = $('#district_id').select2('data')[0];
+            $.ajax({
+                url: '/admin/ward/getWardByDistrictId/' + district.id,
+                type: 'get',
                 dataType: 'json',
-                cache: true,
-                processResults: function (data) {
+
+
+            }).done(function (data) {
+                console.log(data)
+                let results = $.map(data, function (item) {
+
                     return {
-                        results: $.map(data, function (item) {
-                            console.log(item)
-                            return {
-                                text: item.name,
-                                id: item.id,
-                                data: item
-                            };
-                        }),
+                        text: item.name,
+                        id: item.id,
+                        data: item
                     };
-                }
-            },
-
-
+                });
+                $('#ward_id').select2({
+                    data: results,
+                    allowClear: true,
+                    placeholder: "please select"
+                });
+            });
         });
+
+
+        // $('#ward_id').select2({
+        //     minimumInputLength: 2,
+        //     placeholder: 'Please select',
+        //     allowClear: true,
+        //     ajax: {
+        //         url: function () {
+        //             let district = $('#district_id').select2('data')[0];
+        //             if (district == undefined || district == null || district == "") {
+        //                 console.log("please select district and city");
+        //                 return;
+        //             }
+        //             // console.log(district)
+        //             return '/admin/ward/getWardByDistrictId/' + district.id;
+        //         },
+        //         delay: 0,
+        //         quietMillis: 0,
+        //         method: "get",
+        //         dataType: 'json',
+        //         cache: true,
+        //         processResults: function (data) {
+        //             return {
+        //                 results: $.map(data, function (item) {
+        //                     console.log(item)
+        //                     return {
+        //                         text: item.name,
+        //                         id: item.id,
+        //                         data: item
+        //                     };
+        //                 }),
+        //             };
+        //         }
+        //     },
+        //
+        //
+        // });
         $('#ward_id').on('select2:open', function (e) {
             // $('#district_id').val(null).trigger("change");
             $('#street_id').val(null).trigger("change");
