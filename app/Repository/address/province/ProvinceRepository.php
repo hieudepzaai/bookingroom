@@ -19,7 +19,7 @@ class ProvinceRepository implements  ProvinceRepositoryInterface
 
     public function getAll()
     {
-        return $this->model->limit(20)->get();
+        return $this->model->select(['id' , 'name'])->get();
     }
 
     public function getByName($name)

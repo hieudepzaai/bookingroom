@@ -24,6 +24,7 @@
                 <div class="mb-3 mt-3">
                     <label for="email">category_id</label>
                     <select class="select_category_id form-select " id="category_id" name="category_id">
+                        <option></option>
                     </select>
                 </div>
                 <div class="row">
@@ -31,26 +32,27 @@
                         <label for="email">City</label>
                         {{--                <input type="text" class="form-control" id="province_id" placeholder="Enter province_id" name="province_id">--}}
                         <select class="select_province_id form-select " id="province_id" name="province_id">
-
+                            <option></option>
                         </select>
                     </div>
 
                     <div class="col-md-3 mb-3 mt-3">
                         <label for="email">District</label>
                         <select class="select_district_id form-select " id="district_id" name="district_id">
-
-
+                            <option></option>
                         </select>
 
                     </div>
                     <div class="col-md-3 mb-3 mt-3">
                         <label for="email">Ward</label>
                         <select class="select_ward_id form-select " id="ward_id" name="ward_id">
+                            <option></option>
                         </select>
                     </div>
                     <div class="col-md-3 mb-3 mt-3">
                         <label for="email">Street</label>
                         <select class="select_street_id form-select " id="street_id" name="street_id">
+                            <option></option>
                         </select>
                     </div>
 
@@ -125,6 +127,16 @@
 @section('script')
     @parent
     <script>
+        function initSelect2() {
+            $('#province_id').select2();
+            $('#district_id').select2({
+                placeholder: "please select"
+            });
+            $('#ward_id').select2();
+            $('#street_id').select2();
+
+        }
+        initSelect2();
 
         $.ajax({
             url: '/admin/categories',
@@ -147,64 +159,48 @@
                 placeholder: "please select"
             });
         });
+        $.ajax({
+            url: '/admin/provinces',
+            type: 'get',
+            dataType: 'json',
+            async: true,
 
+        }).done(function (data) {
+            let results = $.map(data, (item) => {
 
-        $('#province_id').select2({
-            allowClear: true,
-            minimumInputLength: 2,
-            ajax: {
-                url: '{{route("province.getByName")}}',
-                delay: 0,
-                quietMillis: 0,
-                method: "get",
-                dataType: 'json',
-                data: function (params) {
-                    // Query parameters will be ?search=[term]&type=public
-                    let query = {
-                        name: params.term,
-                    }
-                    return query;
-                },
-                cache: true,
-                processResults: function (data, params) {
-                    return {
-                        results: $.map(data, function (item) {
-                            // console.log(item)
-                            return {
-                                text: item.name,
-                                id: item.id,
-                                data: item
-                            };
-                        }),
-                    };
-                }
-            },
-            placeholder: 'Please select',
-
+                return {
+                    text: item.name,
+                    id: item.id,
+                    data: item
+                };
+            });
+            $('#province_id').select2({
+                data: results,
+                allowClear: true,
+                placeholder: "please select"
+            });
         });
 
-        $('#province_id').on('select2:open', function (e) {
+
+        $('#province_id').on('change', function (e) {
             // Do something
-            console.log("open")
-            $('#district_id').val(null).trigger("change");
+            console.log("change")
+            // $('#district_id').select2("destroy");
+
+            $('#district_id').empty();
             $('#ward_id').val(null).trigger("change");
             $('#street_id').val(null).trigger("change");
 
-        });
-        $('#district_id').select2();
-
-        $('#province_id').on('select2:select', function (e) {
-            // Do something
-            console.log("select")
-            $('#district_id').select2("destroy");
             let province = $('#province_id').select2('data')[0];
             $.ajax({
                 url: '/admin/district/provinces/' + province.id,
                 type: 'get',
                 dataType: 'json',
 
+
             }).done(function (data) {
-                let results = $.map(data, (item) => {
+                console.log(data)
+                let results = $.map(data, function (item) {
 
                     return {
                         text: item.name,
@@ -222,44 +218,8 @@
         });
 
 
-        // $('#district_id').select2({
-        //     minimumInputLength: 2,
-        //     ajax: {
-        //         url: function () {
-        //             var provinceId = $('#province_id').select2('data')[0];
-        //             if (provinceId === undefined) {
-        //                 console.log("please select province");
-        //                 return;
-        //             }
-        //             console.log(provinceId)
-        //             return '/admin/district/provinces/' + provinceId.id;
-        //         },
-        //         delay: 0,
-        //         quietMillis: 0,
-        //         method: "get",
-        //         dataType: 'json',
-        //         cache: true,
-        //         processResults: function (data, params) {
-        //             // Transforms the top-level key of the response object from 'items' to 'results'
-        //             return {
-        //                 results: $.map(data, function (item) {
-        //                     console.log(item)
-        //                     return {
-        //                         text: item.name,
-        //                         id: item.id,
-        //                         data: item
-        //                     };
-        //                 }),
-        //
-        //
-        //             };
-        //         }
-        //         // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
-        //     },
-        //     placeholder: 'Please select',
-        //
-        // });
-        $('#district_id').on('select2:open', function (e) {
+
+        $('#district_id').on('change', function (e) {
             $('#ward_id').val(null).trigger("change");
             $('#street_id').val(null).trigger("change");
         });
