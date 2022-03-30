@@ -24,10 +24,15 @@ class DistrictRepository implements DistrictRepositoryInterface
         return $this->model->findOrFail($id);
     }
 
-    public function getAll(): \Illuminate\Database\Eloquent\Collection
+    public function getAll()
     {
-        return $this->model->all();
+        return $this->model->limit(20)->get();
     }
 
 
+    public function getDistrictByProvinceId($id)
+    {
+        return $this->model->whereProvinceId( $id)->get();
+
+    }
 }

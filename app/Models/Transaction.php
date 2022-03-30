@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Transaction
- * 
+ *
  * @property int $id
  * @property float $amount
  * @property string $transaction_type
@@ -22,8 +22,21 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon $created_at
  * @property string $status
  * @property string $payment_method
- *
  * @package App\Models
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereAmount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereBalanceAfterSuccessTransaction($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereBalanceBeforeTransaction($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereComment($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction wherePaymentMethod($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereTransactionType($value)
+ * @mixin \Eloquent
  */
 class Transaction extends Model
 {

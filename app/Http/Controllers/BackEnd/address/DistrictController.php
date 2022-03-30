@@ -24,4 +24,7 @@ class DistrictController extends Controller
     public function getById($id) {
         return $this->repo->get($id);
     }
+    public function getDistrictByProvinceId($id) {
+        return $this->repo->getDistrictByProvinceId($id);
+    }
 }
