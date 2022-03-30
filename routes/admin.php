@@ -3,22 +3,7 @@
 use App\Http\Controllers\BackEnd\address\DistrictController;
 Route::get("array" ,  function () {
     $arr = [
-        'title',
-        'description',
-        'category_id',
-        'street_id',
-        'ward_id',
-        'district_id',
-        'province_id',
-        'address_detail',
-        'price',
-        'price_type',
-        'is_disabled',
-        'area',
-        'priority',
-        'expired_at',
-        'deposit_amount',
-        'status',
+
         'created_by'
     ];
     return view("test" , [
@@ -33,6 +18,13 @@ Route::get('provinces/getByName', [\App\Http\Controllers\BackEnd\address\Provinc
 
 Route::get('districts', [DistrictController::class , 'getAll']);
 Route::get('district/provinces/{id}', [DistrictController::class , 'getDistrictByProvinceId'])->name('district.getByProvinceID');
-
-//Route::get('district', [\App\Http\Controllers\address\DistrictController::class , 'getAll']);
 Route::get('district/{id}', [DistrictController::class , 'getById']);
+
+Route::get('ward/{id}', [\App\Http\Controllers\BackEnd\address\WardController::class , 'getById']);
+Route::get('ward/getWardByDistrictId/{id}', [\App\Http\Controllers\BackEnd\address\WardController::class , 'getWardByDistrictId'])->name('ward.getByDistrictID');
+
+Route::get('street/getByName', [\App\Http\Controllers\BackEnd\address\StreetController::class , 'getStreetByName'])->name('street.getByName');
+
+Route::get('categories', [\App\Http\Controllers\BackEnd\PostCategory\PostCategoryController::class, 'getAll'])->name('category.getAll');
+
+

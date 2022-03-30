@@ -16,26 +16,28 @@
                 </div>
                 <div class="col-md-12 mb-3 mt-3">
                     <label for="email">description</label>
-                    <textarea class="form-control" id="description" placeholder="Enter description" name="description"   cols="30" rows="10"></textarea>
+                    <textarea class="form-control" id="description" placeholder="Enter description" name="description"
+                              cols="30" rows="10"></textarea>
                 </div>
 
 
                 <div class="mb-3 mt-3">
                     <label for="email">category_id</label>
-                    <input type="text" class="form-control" id="category_id" placeholder="Enter category_id" name="category_id">
+                    <select class="select_category_id form-select " id="category_id" name="category_id">
+                    </select>
                 </div>
                 <div class="row">
                     <div class="col-md-3 mb-3 mt-3">
                         <label for="email">City</label>
                         {{--                <input type="text" class="form-control" id="province_id" placeholder="Enter province_id" name="province_id">--}}
-                        <select class="select_province_id form-select " id="province_id"  name="province_id">
+                        <select class="select_province_id form-select " id="province_id" name="province_id">
 
                         </select>
                     </div>
 
                     <div class="col-md-3 mb-3 mt-3">
                         <label for="email">District</label>
-                        <select class="select_district_id form-select " id="district_id"  name="district_id">
+                        <select class="select_district_id form-select " id="district_id" name="district_id">
 
 
                         </select>
@@ -43,15 +45,14 @@
                     </div>
                     <div class="col-md-3 mb-3 mt-3">
                         <label for="email">Ward</label>
-                        <select class="select_ward_id form-select " id="ward_id"  name="ward_id">
+                        <select class="select_ward_id form-select " id="ward_id" name="ward_id">
                         </select>
                     </div>
                     <div class="col-md-3 mb-3 mt-3">
                         <label for="email">Street</label>
-                        <select class="select_street_id form-select " id="street_id"  name="street_id">
+                        <select class="select_street_id form-select " id="street_id" name="street_id">
                         </select>
                     </div>
-
 
 
                 </div>
@@ -59,7 +60,8 @@
 
                 <div class="mb-3 mt-3">
                     <label for="email">address_detail</label>
-                    <input type="text" class="form-control" id="address_detail" placeholder="Enter address_detail" name="address_detail">
+                    <input type="text" class="form-control" id="address_detail" placeholder="Enter address_detail"
+                           name="address_detail">
                 </div>
 
                 <div class="mb-3 mt-3">
@@ -69,12 +71,14 @@
 
                 <div class="mb-3 mt-3">
                     <label for="email">price_type</label>
-                    <input type="text" class="form-control" id="price_type" placeholder="Enter price_type" name="price_type">
+                    <input type="text" class="form-control" id="price_type" placeholder="Enter price_type"
+                           name="price_type">
                 </div>
 
                 <div class="mb-3 mt-3">
                     <label for="email">is_disabled</label>
-                    <input type="text" class="form-control" id="is_disabled" placeholder="Enter is_disabled" name="is_disabled">
+                    <input type="text" class="form-control" id="is_disabled" placeholder="Enter is_disabled"
+                           name="is_disabled">
                 </div>
 
                 <div class="mb-3 mt-3">
@@ -89,12 +93,14 @@
 
                 <div class="mb-3 mt-3">
                     <label for="email">expired_at</label>
-                    <input type="text" class="form-control" id="expired_at" placeholder="Enter expired_at" name="expired_at">
+                    <input type="text" class="form-control" id="expired_at" placeholder="Enter expired_at"
+                           name="expired_at">
                 </div>
 
                 <div class="mb-3 mt-3">
                     <label for="email">deposit_amount</label>
-                    <input type="text" class="form-control" id="deposit_amount" placeholder="Enter deposit_amount" name="deposit_amount">
+                    <input type="text" class="form-control" id="deposit_amount" placeholder="Enter deposit_amount"
+                           name="deposit_amount">
                 </div>
 
                 <div class="mb-3 mt-3">
@@ -104,7 +110,8 @@
 
                 <div class="mb-3 mt-3">
                     <label for="email">created_by</label>
-                    <input type="text" class="form-control" id="created_by" placeholder="Enter created_by" name="created_by">
+                    <input type="text" class="form-control" id="created_by" placeholder="Enter created_by"
+                           name="created_by">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
@@ -117,11 +124,33 @@
 @endsection
 @section('script')
     @parent
-<script>
-    $(document).ready(()=> {
+    <script>
+
+        $.ajax({
+            url: '/admin/categories',
+            type: 'get',
+            dataType: 'json',
+            async: true,
+
+        }).done(function (data) {
+            let results = $.map(data, (item) => {
+
+                return {
+                    text: item.name,
+                    id: item.id,
+                    data: item
+                };
+            });
+            $('.select_category_id').select2({
+                data: results,
+                allowClear: true,
+                placeholder: "please select"
+            });
+        });
 
 
         $('#province_id').select2({
+            allowClear: true,
             minimumInputLength: 2,
             ajax: {
                 url: '{{route("province.getByName")}}',
@@ -131,18 +160,13 @@
                 dataType: 'json',
                 data: function (params) {
                     // Query parameters will be ?search=[term]&type=public
-                    var query = {
+                    let query = {
                         name: params.term,
-                        // type: 'public'
                     }
-                    // console.log(params.term)
-
-                    // Query parameters will be ?search=[term]&type=public
                     return query;
                 },
                 cache: true,
-                processResults: function (data,params) {
-                    // Transforms the top-level key of the response object from 'items' to 'results'
+                processResults: function (data, params) {
                     return {
                         results: $.map(data, function (item) {
                             // console.log(item)
@@ -152,84 +176,115 @@
                                 data: item
                             };
                         }),
-
-
                     };
                 }
-                // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
             },
             placeholder: 'Please select',
 
         });
+
         $('#province_id').on('select2:open', function (e) {
             // Do something
+            console.log("open")
             $('#district_id').val(null).trigger("change");
             $('#ward_id').val(null).trigger("change");
             $('#street_id').val(null).trigger("change");
 
-
         });
-        $('#district_id').select2({
-            minimumInputLength: 2,
-            ajax: {
-                url: function () {
-                    var provinceId = $('#province_id').select2('data')[0];
-                    if(provinceId===undefined) {
-                        console.log("please select province");
-                        return;
-                    }
-                    console.log(provinceId)
-                    return '/admin/district/provinces/' +  provinceId.id;
-                },
-                delay: 0,
-                quietMillis: 0,
-                method: "get",
+        $('#district_id').select2();
+
+        $('#province_id').on('select2:select', function (e) {
+            // Do something
+            console.log("select")
+            $('#district_id').select2("destroy");
+            let province = $('#province_id').select2('data')[0];
+            $.ajax({
+                url: '/admin/district/provinces/' + province.id,
+                type: 'get',
                 dataType: 'json',
-                cache: true,
-                processResults: function (data,params) {
-                    // Transforms the top-level key of the response object from 'items' to 'results'
+
+            }).done(function (data) {
+                let results = $.map(data, (item) => {
+
                     return {
-                        results: $.map(data, function (item) {
-                            console.log(item)
-                            return {
-                                text: item.name,
-                                id: item.id,
-                                data: item
-                            };
-                        }),
-
-
+                        text: item.name,
+                        id: item.id,
+                        data: item
                     };
-                }
-                // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
-            },
-            placeholder: 'Please select',
+                });
+                $('#district_id').select2({
+                    data: results,
+                    allowClear: true,
+                    placeholder: "please select"
+                });
+            });
 
         });
+
+
+        // $('#district_id').select2({
+        //     minimumInputLength: 2,
+        //     ajax: {
+        //         url: function () {
+        //             var provinceId = $('#province_id').select2('data')[0];
+        //             if (provinceId === undefined) {
+        //                 console.log("please select province");
+        //                 return;
+        //             }
+        //             console.log(provinceId)
+        //             return '/admin/district/provinces/' + provinceId.id;
+        //         },
+        //         delay: 0,
+        //         quietMillis: 0,
+        //         method: "get",
+        //         dataType: 'json',
+        //         cache: true,
+        //         processResults: function (data, params) {
+        //             // Transforms the top-level key of the response object from 'items' to 'results'
+        //             return {
+        //                 results: $.map(data, function (item) {
+        //                     console.log(item)
+        //                     return {
+        //                         text: item.name,
+        //                         id: item.id,
+        //                         data: item
+        //                     };
+        //                 }),
+        //
+        //
+        //             };
+        //         }
+        //         // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+        //     },
+        //     placeholder: 'Please select',
+        //
+        // });
         $('#district_id').on('select2:open', function (e) {
             $('#ward_id').val(null).trigger("change");
             $('#street_id').val(null).trigger("change");
         });
 
+
         $('#ward_id').select2({
             minimumInputLength: 2,
+            placeholder: 'Please select',
+            allowClear: true,
             ajax: {
                 url: function () {
-                    var provinceId = $('#province_id').select2('data')[0];
-                    if(provinceId===undefined) {
-                        console.log("please select province");
+                    let district = $('#district_id').select2('data')[0];
+                    if (district == undefined || district == null || district == "") {
+                        console.log("please select district and city");
                         return;
                     }
-                    console.log(provinceId)
-                    return '/admin/district/provinces/' +  provinceId.id;
+                    // console.log(district)
+                    return '/admin/ward/getWardByDistrictId/' + district.id;
                 },
                 delay: 0,
                 quietMillis: 0,
                 method: "get",
                 dataType: 'json',
                 cache: true,
-                processResults: function (data,params) {
-                    // Transforms the top-level key of the response object from 'items' to 'results'
+                processResults: function (data) {
                     return {
                         results: $.map(data, function (item) {
                             console.log(item)
@@ -239,38 +294,36 @@
                                 data: item
                             };
                         }),
-
-
                     };
                 }
-                // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
             },
-            placeholder: 'Please select',
+
 
         });
         $('#ward_id').on('select2:open', function (e) {
-            $('#ward_id').val(null).trigger("change");
+            // $('#district_id').val(null).trigger("change");
             $('#street_id').val(null).trigger("change");
         });
+
 
         $('#street_id').select2({
             minimumInputLength: 2,
             ajax: {
-                url: function () {
-                    var provinceId = $('#province_id').select2('data')[0];
-                    if(provinceId===undefined) {
-                        console.log("please select province");
-                        return;
-                    }
-                    console.log(provinceId)
-                    return '/admin/district/provinces/' +  provinceId.id;
-                },
-                delay: 0,
+                url: '/admin/street/getByName',
+                delay: 300,
                 quietMillis: 0,
                 method: "get",
                 dataType: 'json',
                 cache: true,
-                processResults: function (data,params) {
+                data: function (params) {
+                    // Query parameters will be ?search=[term]&type=public
+                    var query = {
+                        name: params.term,
+                    }
+                    // Query parameters will be ?search=[term]&type=public
+                    return query;
+                },
+                processResults: function (data, params) {
                     // Transforms the top-level key of the response object from 'items' to 'results'
                     return {
                         results: $.map(data, function (item) {
@@ -292,7 +345,5 @@
         });
 
 
-
-    });
-</script>
+    </script>
 @endsection

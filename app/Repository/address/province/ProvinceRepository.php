@@ -12,21 +12,18 @@ class ProvinceRepository implements  ProvinceRepositoryInterface
         $this->model = $model;
     }
 
-    public function get($id)
+    public function getById($id)
     {
-        // TODO: Implement get() method.
         return $this->model->findOrFail($id);
     }
 
     public function getAll()
     {
-        // TODO: Implement getAll() method.
         return $this->model->limit(20)->get();
     }
 
     public function getByName($name)
     {
-        // TODO: Implement getByName() method.
         return $this->model->where('name' , 'like' , '%'.$name.'%')->get();
 //        $queries = DB::getQueryLog();
     }

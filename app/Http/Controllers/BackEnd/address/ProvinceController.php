@@ -19,14 +19,7 @@ class ProvinceController extends Controller
         return $this->repo->getAll();
     }
     public function getByName(Request $request) {
-//        dd($this->repo->getByName($request->name));
-//        $request->name = trim($request->name);
-        $provinces = $this->repo->getByName($request->name);
-        $last_query = end($provinces);
+        return $this->repo->getByName($request->name);
+    }
 
-        return $provinces;
-    }
-    public function getDistrictByProvinceId($id) {
-//        return $this->repo->
-    }
 }
