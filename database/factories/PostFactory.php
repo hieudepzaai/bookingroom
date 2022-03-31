@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\PostCategory;
+use App\Models\Province;
+use App\Models\Street;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +19,9 @@ class PostFactory extends Factory
      */
     public function definition()
     {
+
         return [
-            //
+
         ];
     }
 }

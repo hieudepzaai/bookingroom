@@ -22,13 +22,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null $province_id
  * @property string|null $address_detail
  * @property float|null $price
- * @property string $price_type
+ * @property int|null $price_type_id
  * @property int|null $is_disabled
  * @property float|null $area
  * @property int|null $priority
  * @property Carbon|null $expired_at
  * @property float|null $deposit_amount
  * @property string|null $status
+ * @property string|null $slug
+ * @property string|null $img
  * @property Carbon|null $created_at
  * @property int|null $created_by
  * @package App\Models
@@ -45,20 +47,18 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereDistrictId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereExpiredAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereImg($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereIsDisabled($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post wherePrice($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Post wherePriceType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post wherePriceTypeId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post wherePriority($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereProvinceId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereStreetId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereWardId($value)
  * @mixin \Eloquent
- * @property int|null $number_of_unit
- * @method static \Illuminate\Database\Eloquent\Builder|Post whereNumberOfUnit($value)
- * @property int|null $price_type_id
- * @method static \Illuminate\Database\Eloquent\Builder|Post wherePriceTypeId($value)
  */
 class Post extends Model
 {
@@ -72,6 +72,7 @@ class Post extends Model
 		'district_id' => 'int',
 		'province_id' => 'int',
 		'price' => 'float',
+		'price_type_id' => 'int',
 		'is_disabled' => 'int',
 		'area' => 'float',
 		'priority' => 'int',
@@ -93,13 +94,15 @@ class Post extends Model
 		'province_id',
 		'address_detail',
 		'price',
-		'price_type',
+		'price_type_id',
 		'is_disabled',
 		'area',
 		'priority',
 		'expired_at',
 		'deposit_amount',
 		'status',
+		'slug',
+		'img',
 		'created_by'
 	];
 }

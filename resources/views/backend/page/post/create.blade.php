@@ -73,30 +73,15 @@
 
                 <div class="mb-3 mt-3">
                     <label for="email">price_type</label>
-                    <input type="text" class="form-control" id="price_type" placeholder="Enter price_type"
-                           name="price_type">
+                    <select class="select_price_type form-select " id="price_type" name="price_type">
+                        <option></option>
+                    </select>
                 </div>
 
-                <div class="mb-3 mt-3">
-                    <label for="email">is_disabled</label>
-                    <input type="text" class="form-control" id="is_disabled" placeholder="Enter is_disabled"
-                           name="is_disabled">
-                </div>
 
                 <div class="mb-3 mt-3">
                     <label for="email">area</label>
                     <input type="text" class="form-control" id="area" placeholder="Enter area" name="area">
-                </div>
-
-                <div class="mb-3 mt-3">
-                    <label for="email">priority</label>
-                    <input type="text" class="form-control" id="priority" placeholder="Enter priority" name="priority">
-                </div>
-
-                <div class="mb-3 mt-3">
-                    <label for="email">expired_at</label>
-                    <input type="text" class="form-control" id="expired_at" placeholder="Enter expired_at"
-                           name="expired_at">
                 </div>
 
                 <div class="mb-3 mt-3">
@@ -126,5 +111,9 @@
 @endsection
 @section('script')
     @parent
+    <script src="//cdn.ckeditor.com/4.18.0/standard/ckeditor.js"></script>
+    <script src="/admin/js/common.js"></script>
+
+    <script src="/admin/js/post/editor.js"></script>
     <script src="/admin/js/post/addPost.js"></script>
 @endsection

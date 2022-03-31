@@ -28,6 +28,7 @@ class PostController extends Controller
         return view('backend.page.post.create');
     }
 
+
     public function GetById($id)
     {
 

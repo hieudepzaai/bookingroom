@@ -29,10 +29,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Street extends Model
 {
-
 	protected $table = 'street';
 	public $timestamps = false;
-
 
 	protected $casts = [
 		'province_id' => 'int',

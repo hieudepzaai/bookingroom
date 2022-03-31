@@ -1,4 +1,3 @@
-
 function initSelect2() {
     let commonOption = {
         theme: 'bootstrap-5',
@@ -10,8 +9,33 @@ function initSelect2() {
     });
 
 }
-
 initSelect2();
+var currencyUnit = getConfigByKey("currency_unit")
+
+$.ajax({
+    url: '/admin/premiumTypes',
+    type: 'get',
+    dataType: 'json',
+    async: true,
+
+}).done(function (data) {
+    let results = $.map(data, (item) => {
+
+        return {
+            text: item.premium_type + " " +item.price_per_unit+ " " + currencyUnit.value + "/" + item.unit,
+            id: item.id,
+            data: item
+        };
+    });
+    $('#price_type').select2({
+        data: results,
+        theme: 'bootstrap-5',
+        allowClear: true,
+        placeholder: "please select"
+    });
+});
+
+
 
 $.ajax({
     url: '/admin/categories',

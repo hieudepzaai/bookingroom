@@ -5,6 +5,8 @@ return [
         "draft",
         "deleted" ,
         "published",
+        "booked",
+        "deposited",
         "unknown"
     ],
     "price_unit" => [
@@ -44,6 +46,8 @@ return [
             "description" =>"Europe"
         ],
     ],
+
+
 
 
 

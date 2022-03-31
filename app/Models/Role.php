@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int $id
  * @property string|null $name
- * @property int|null $slug
+ * @property string|null $slug
  * @property string|null $description
  * @package App\Models
  * @method static \Illuminate\Database\Eloquent\Builder|Role newModelQuery()
@@ -29,10 +29,6 @@ class Role extends Model
 {
 	protected $table = 'role';
 	public $timestamps = false;
-
-	protected $casts = [
-		'slug' => 'int'
-	];
 
 	protected $fillable = [
 		'name',
