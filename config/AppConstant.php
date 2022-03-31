@@ -46,6 +46,13 @@ return [
             "description" =>"Europe"
         ],
     ],
+    "system_currency_unit" =>"VND",
+    "system_area_unit" => [
+        "name" => "m2",
+        "display_html" => "M<sup>2</sup>"
+    ],
+
+    "items_per_page" => 10,
 
 
 

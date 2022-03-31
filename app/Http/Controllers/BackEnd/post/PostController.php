@@ -20,7 +20,10 @@ class PostController extends Controller
 
     public function index() {
 
-        return view('post.index');
+        $view_data = [
+            "posts" => $this->repo->getAll()
+        ];
+        return view('backend.page.post.index' , $view_data);
     }
     public function Create(CreatePostRequest $request) {
         if($request->all() != []) return $request->all();
@@ -31,12 +34,15 @@ class PostController extends Controller
 
     public function GetById($id)
     {
+        return $this->repo->get($id);
 
     }
 
 
-    public function GetAll()
+    public function getAll(Request $request)
     {
+        $item_per_page = $request->per_page ;
+        return $this->repo->getAll($item_per_page);
 
     }
 
@@ -45,8 +51,14 @@ class PostController extends Controller
 
     }
 
-    public function Update($id)
+    public function edit($id)
     {
+
+        $view_data = [
+            "post" => $this->repo->get($id)
+        ];
+
+        return view('backend.page.post.edit' , $view_data);
 
     }
 }

@@ -11,11 +11,7 @@ use Illuminate\Http\Request;
  */
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $posts = Post::paginate();
@@ -24,39 +20,25 @@ class PostController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $posts->perPage());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         $post = new Post();
         return view('post.create', compact('post'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        request()->validate(Post::$rules);
-
-        $post = Post::create($request->all());
-
-        return redirect()->route('posts.index')
-            ->with('success', 'Post created successfully.');
+//        request()->validate(Post::$rules);
+//
+//        $post = Post::create($request->all());
+//
+//        return redirect()->route('posts.index')
+//            ->with('success', 'Post created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         $post = Post::find($id);
@@ -64,12 +46,7 @@ class PostController extends Controller
         return view('post.show', compact('post'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         $post = Post::find($id);
@@ -77,13 +54,7 @@ class PostController extends Controller
         return view('post.edit', compact('post'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  Post $post
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Post $post)
     {
         request()->validate(Post::$rules);
@@ -94,12 +65,7 @@ class PostController extends Controller
             ->with('success', 'Post updated successfully');
     }
 
-    /**
-     * @param int $id
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
-     */
-    public function destroy($id)
+   function destroy($id)
     {
         $post = Post::find($id)->delete();
 

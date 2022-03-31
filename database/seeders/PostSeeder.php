@@ -28,7 +28,7 @@ class PostSeeder extends Seeder
     public function run()
     {
         //
-        Post::truncate();
+//        Post::truncate();
         $faker = Factory::create();
 
         for($i = 0 ; $i < 100 ; $i ++) {

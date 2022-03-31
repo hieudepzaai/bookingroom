@@ -20,12 +20,34 @@ class PostRepository implements PostRepositoryInterface
 
     public function get($id)
     {
-        return $this->model->findOrFail($id);
+        return $this->model
+            ->join("post_category" , "post.category_id" , "=" , "post_category.id")
+            ->join("province" , "post.province_id" , "=" , "province.id")
+            ->join("district" , "post.district_id" , "=" , "district.id")
+            ->join("ward" , "post.ward_id" , "=" , "ward.id")
+            ->join("post_premium_type" , "post.price_type_id" , "=" , "post_premium_type.id")
+            ->join("users" , "post.created_by" , "=" , "users.id")
+            ->selectRaw("post.* , post_category.name as category_name ,
+                                province.name as province_name ,district.name as district_name ,  ward.name as ward_name ,
+                                post_premium_type.premium_type as post_premium_type  , post_premium_type.unit  ,users.name as  user_name  ")
+            ->where('post.id' , '=', $id)->first();
     }
 
-    public function getAll(): \Illuminate\Database\Eloquent\Collection
+    public function getAll()
     {
-        return $this->model->all();
+//        return $this->model->paginate(\Config::get("AppConstant.items_per_page"));
+        return $this->model
+            ->join("post_category" , "post.category_id" , "=" , "post_category.id")
+            ->join("province" , "post.province_id" , "=" , "province.id")
+            ->join("district" , "post.district_id" , "=" , "district.id")
+            ->join("ward" , "post.ward_id" , "=" , "ward.id")
+            ->join("post_premium_type" , "post.price_type_id" , "=" , "post_premium_type.id")
+            ->join("users" , "post.created_by" , "=" , "users.id")
+            ->selectRaw("post.* , post_category.name as category_name ,
+                                province.name as province_name ,district.name as district_name ,  ward.name as ward_name ,
+                                post_premium_type.premium_type as post_premium_type  , post_premium_type.unit  ,users.name as  user_name  ")
+            ->paginate(\Config::get("AppConstant.items_per_page"));
+
     }
 
     public function delete($id): int
@@ -38,8 +60,8 @@ class PostRepository implements PostRepositoryInterface
         return $this->model->findOrFail($id)->update($data);
     }
 
-    public function paginate($per_page = 15)
+    public function paginate()
     {
-        return $this->model->paginate($per_page);
+        return $this->model->paginate(\Config::get("AppConstant.items_per_page"));
     }
 }

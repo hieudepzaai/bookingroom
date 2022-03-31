@@ -3,7 +3,25 @@
 use App\Http\Controllers\BackEnd\address\DistrictController;
 Route::get("array" ,  function () {
     $arr = [
-
+        'id',
+        'title',
+        'description',
+        'category_id',
+        'street_id',
+        'ward_id',
+        'district_id',
+        'province_id',
+        'address_detail',
+        'price',
+        'price_type_id',
+        'is_disabled',
+        'area',
+        'priority',
+        'expired_at',
+        'deposit_amount',
+        'status',
+        'slug',
+        'img',
         'created_by'
     ];
     return view("test" , [
@@ -12,6 +30,11 @@ Route::get("array" ,  function () {
 });
 //Route::get('post/create', [\App\Http\Controllers\BackEnd\post\PostController::class , 'Create']);
 Route::any('post/create', [\App\Http\Controllers\BackEnd\post\PostController::class , 'Create'])->name("post.create");
+Route::any('post/edit/{id}', [\App\Http\Controllers\BackEnd\post\PostController::class , 'edit'])->name("post.edit");
+
+Route::get('post/{id}', [\App\Http\Controllers\BackEnd\post\PostController::class, 'GetById']);
+
+Route::get('posts', [\App\Http\Controllers\BackEnd\post\PostController::class, 'index']);
 
 Route::get('provinces', [\App\Http\Controllers\BackEnd\address\ProvinceController::class , 'getAll']);
 Route::get('provinces/getByName', [\App\Http\Controllers\BackEnd\address\ProvinceController::class , 'getByName'])->name("province.getByName");
@@ -33,4 +56,8 @@ Route::get('config', [\App\Http\Controllers\BackEnd\Config\ConfigController::cla
 Route::get('config/getByKey', [\App\Http\Controllers\BackEnd\Config\ConfigController::class, 'getConfig'])->name("config.getByKey");
 
 Route::get('lorem', [\App\Http\Controllers\LoremController::class, 'getLoremImg']);
+
+Route::get('post/getAll', [\App\Http\Controllers\BackEnd\post\PostController::class, 'getAll']);
+
+
 

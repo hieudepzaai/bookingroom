@@ -5,7 +5,7 @@
 @endsection
 
 @section('title')
-    Create new post
+    Edit Post {{$post->id}}
 @endsection
 
 @section('content')
@@ -16,12 +16,12 @@
 
                 <div class="mb-3 mt-3">
                     <label for="email">title</label>
-                    <input type="text" class="form-control" id="title" placeholder="Enter title" name="title">
+                    <input type="text" value="{{$post->title}}" class="form-control" id="title" placeholder="Enter title" name="title">
                 </div>
                 <div class="col-md-12 mb-3 mt-3">
                     <label for="email">description</label>
                     <textarea class="form-control" id="description" placeholder="Enter description" name="description"
-                              cols="30" rows="10"></textarea>
+                              cols="30" rows="10">{!! $post->description !!}</textarea>
                 </div>
 
 

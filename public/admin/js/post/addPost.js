@@ -1,3 +1,5 @@
+
+
 function initSelect2() {
     let commonOption = {
         theme: 'bootstrap-5',
