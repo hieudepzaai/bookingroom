@@ -31,9 +31,10 @@
                         <td>
                             <img class="post-img-table" src="{{$post->img}}" alt="">
                             <span class="fw-bold d-block">Description: </span>
-                            <p>
-                                {{$post->description}}
-                            </p>
+                            <div class="w-100">
+                                {!! $post->description !!}
+
+                            </div>
                             <div>
                                 <span class="fw-bold ">Category: </span>
                                 <span class="badge bg-success text-white me-4">  {{$post->category_name}}  </span>
@@ -62,7 +63,7 @@
                         </td>
                         <td>{{$post->category_name}}</td>
                         <td><span
-                                class="badge bg-warning"> {{$post->price}} {{Config::get("AppConstant.system_currency_unit")}}</span>
+                                class="badge bg-warning">{{number_format($post->price, 0)}} {{Config::get("AppConstant.system_currency_unit")}}</span>
                         </td>
                         <td>
                             <span class="badge

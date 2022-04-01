@@ -53,7 +53,11 @@ return [
     ],
 
     "items_per_page" => 10,
+    "image_upload_path" => [
+        "post" => "images/post",
+        "user" => "images/user"
 
+    ],
 
 
 

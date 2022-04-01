@@ -29,7 +29,9 @@ Route::get("array" ,  function () {
     ]);
 });
 //Route::get('post/create', [\App\Http\Controllers\BackEnd\post\PostController::class , 'Create']);
-Route::any('post/create', [\App\Http\Controllers\BackEnd\post\PostController::class , 'Create'])->name("post.create");
+Route::get('post/create', [\App\Http\Controllers\BackEnd\post\PostController::class , 'Create'])->name("post.create");
+Route::post('post/create', [\App\Http\Controllers\BackEnd\post\PostController::class , 'DoCreatePost'])->name("post.DoCreate");
+
 Route::any('post/edit/{id}', [\App\Http\Controllers\BackEnd\post\PostController::class , 'edit'])->name("post.edit");
 
 Route::get('post/{id}', [\App\Http\Controllers\BackEnd\post\PostController::class, 'GetById']);

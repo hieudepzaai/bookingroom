@@ -105,4 +105,18 @@ class Post extends Model
 		'img',
 		'created_by'
 	];
+    public function scopePostDetail($query) {
+        return $query->leftJoin("post_category" , "post.category_id" , "=" , "post_category.id")
+            ->leftJoin("province" , "post.province_id" , "=" , "province.id")
+            ->leftJoin("district" , "post.district_id" , "=" , "district.id")
+            ->leftJoin("ward" , "post.ward_id" , "=" , "ward.id")
+            ->leftJoin("street" , "post.street_id" , "=" , "street.id")
+            ->leftJoin("post_premium_type" , "post.price_type_id" , "=" , "post_premium_type.id")
+            ->leftJoin("users" , "post.created_by" , "=" , "users.id")
+            ->selectRaw("post.* , post_category.name as category_name ,
+                                province.name as province_name ,district.name as district_name ,  ward.name as ward_name ,street.name as street_name ,
+                                post_premium_type.premium_type as post_premium_type  , post_premium_type.unit  , post_premium_type.price_per_unit  ,users.name as  user_name  ");
+    }
+
+
 }

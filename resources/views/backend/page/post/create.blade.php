@@ -11,7 +11,7 @@
 @section('content')
     <div class="row">
         <div class="col-12">
-            <form class="w-100" method="post" action="{{route('post.create')}}">
+            <form class="w-100" method="post" action="{{route('post.create')}}" enctype="multipart/form-data">
                 @csrf
 
                 <div class="mb-3 mt-3">
@@ -72,7 +72,7 @@
 
                 <div class="mb-3 mt-3">
                     <label for="email">price</label>
-                    <input type="text" class="form-control" id="price" placeholder="Enter price" name="price">
+                    <input type="text" class="form-control" id="price" placeholder="Enter price" name="price" data-type='currency'>
                 </div>
 
                 <div class="mb-3 mt-3">
@@ -104,13 +104,21 @@
 
                 <div class="mb-3 mt-3">
                     <label for="email">deposit_amount</label>
-                    <input type="text" class="form-control" id="deposit_amount" placeholder="Enter deposit_amount"
+                    <input type="text" class="form-control" id="deposit_amount" placeholder="Enter deposit_amount" data-type='currency'
                            name="deposit_amount">
                 </div>
 
                 <div class="mb-3 mt-3">
                     <label for="email">status</label>
-                    <input type="text" class="form-control" id="status" placeholder="Enter status" name="status">
+{{--                    <input type="text" class="form-control" id="status" placeholder="Enter status" name="status">--}}
+                    <select class="select_status form-select " id="price_type" id="status" name="status">
+                                                <option value=""></option>
+
+                        @foreach(Config::get('AppConstant.post_status') as $status)
+                            <option value="{{$status}}">{{$status}}</option>
+                        @endforeach
+
+                    </select>
                 </div>
 
                 <div class="mb-3 mt-3">
@@ -140,7 +148,7 @@
         })
 
     </script>
-    <script src="//cdn.ckeditor.com/4.18.0/standard/ckeditor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.18.0/ckeditor.js"></script>
     <script src="/admin/js/common.js"></script>
     <script src="/admin/js/post/editor.js"></script>
     <script src="/admin/js/post/addPost.js"></script>

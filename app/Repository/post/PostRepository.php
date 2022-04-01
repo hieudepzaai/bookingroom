@@ -13,7 +13,7 @@ class PostRepository implements PostRepositoryInterface
         $this->model =  $model;
     }
 
-    public function create($data)
+    public function create($data): Model|Post
     {
         return $this->model->create($data);
     }
@@ -21,15 +21,7 @@ class PostRepository implements PostRepositoryInterface
     public function get($id)
     {
         return $this->model
-            ->join("post_category" , "post.category_id" , "=" , "post_category.id")
-            ->join("province" , "post.province_id" , "=" , "province.id")
-            ->join("district" , "post.district_id" , "=" , "district.id")
-            ->join("ward" , "post.ward_id" , "=" , "ward.id")
-            ->join("post_premium_type" , "post.price_type_id" , "=" , "post_premium_type.id")
-            ->join("users" , "post.created_by" , "=" , "users.id")
-            ->selectRaw("post.* , post_category.name as category_name ,
-                                province.name as province_name ,district.name as district_name ,  ward.name as ward_name ,
-                                post_premium_type.premium_type as post_premium_type  , post_premium_type.unit  ,users.name as  user_name  ")
+            ->PostDetail()
             ->where('post.id' , '=', $id)->first();
     }
 
@@ -37,15 +29,7 @@ class PostRepository implements PostRepositoryInterface
     {
 //        return $this->model->paginate(\Config::get("AppConstant.items_per_page"));
         return $this->model
-            ->join("post_category" , "post.category_id" , "=" , "post_category.id")
-            ->join("province" , "post.province_id" , "=" , "province.id")
-            ->join("district" , "post.district_id" , "=" , "district.id")
-            ->join("ward" , "post.ward_id" , "=" , "ward.id")
-            ->join("post_premium_type" , "post.price_type_id" , "=" , "post_premium_type.id")
-            ->join("users" , "post.created_by" , "=" , "users.id")
-            ->selectRaw("post.* , post_category.name as category_name ,
-                                province.name as province_name ,district.name as district_name ,  ward.name as ward_name ,
-                                post_premium_type.premium_type as post_premium_type  , post_premium_type.unit  ,users.name as  user_name  ")
+            ->PostDetail()->latest()
             ->paginate(\Config::get("AppConstant.items_per_page"));
 
     }
