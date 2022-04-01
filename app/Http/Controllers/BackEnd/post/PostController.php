@@ -18,40 +18,48 @@ use function PHPUnit\Framework\isEmpty;
 class PostController extends Controller
 {
     protected $repo;
+
     public function __construct(PostRepositoryInterface $postRepository)
     {
         $this->repo = $postRepository;
     }
 
-    public function index() {
+    public function index()
+    {
 
         $view_data = [
             "posts" => $this->repo->getAll()
         ];
-        return view('backend.page.post.index' , $view_data);
+        return view('backend.page.post.index', $view_data);
     }
-    public function Create(CreatePostRequest $request) {
-        if($request->all() != []) return $request->all();
+
+    public function Create(CreatePostRequest $request)
+    {
+        if ($request->all() != []) return $request->all();
         return view('backend.page.post.create');
     }
-    public function DoCreatePost(CreatePostRequest $request) {
-        try{
-            $input = $request->all();
-            $input['img'] = FileService::UploadFile(Config::get("AppConstant.image_upload_path.post"), $request->file('img'));
-            $input['price'] = Str::replace(',' ,'', $request->price );
-            $newPost = $this->repo->create($input);
-            return json_encode([
-               "success" => "true" ,
-                "message" => "Add Post Successfully",
-                "data" => $newPost
-            ]);
-        }catch (\Exception $exception) {
 
-            return json_encode([
-                "success" => "false" ,
-                "message" => "error  cannot add Post"
+    public function DoCreatePost(CreatePostRequest $request)
+    {
+
+        $input = $request->all();
+        $input['img'] = FileService::UploadFile(Config::get("AppConstant.image_upload_path.post"), $request->file('img'));
+        $input['price'] = Str::replace(',', '', $request->price);
+        $input['deposit_amount'] = Str::replace(',', '', $request->price);
+
+        $newPost = $this->repo->create($input);
+        return view('backend.page.post.create')
+            ->with([
+                "success" => "true",
+                "message" => "Add Post Successfully"
             ]);
-        }
+
+//            return json_encode([
+//               "success" => "true" ,
+//                "message" => "Add Post Successfully",
+//                "data" => $newPost
+//            ]);
+
 
     }
 
@@ -65,7 +73,7 @@ class PostController extends Controller
 
     public function getAll(Request $request)
     {
-        $item_per_page = $request->per_page ;
+        $item_per_page = $request->per_page;
         return $this->repo->getAll($item_per_page);
 
     }
@@ -82,7 +90,7 @@ class PostController extends Controller
             "post" => $this->repo->get($id)
         ];
 
-        return view('backend.page.post.edit' , $view_data);
+        return view('backend.page.post.edit', $view_data);
 
     }
 }

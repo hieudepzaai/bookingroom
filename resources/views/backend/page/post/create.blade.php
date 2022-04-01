@@ -11,6 +11,11 @@
 @section('content')
     <div class="row">
         <div class="col-12">
+            @if (session('message'))
+                <div class="alert alert-success">
+                    {{ session('message') }}
+                </div>
+            @endif
             <form class="w-100" method="post" action="{{route('post.create')}}" enctype="multipart/form-data">
                 @csrf
 
