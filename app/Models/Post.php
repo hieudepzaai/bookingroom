@@ -62,61 +62,73 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Post extends Model
 {
-	protected $table = 'post';
-	public $timestamps = false;
+    protected $appends = ['diffInDate'];
+    protected $table = 'post';
+    public $timestamps = false;
 
-	protected $casts = [
-		'category_id' => 'int',
-		'street_id' => 'int',
-		'ward_id' => 'int',
-		'district_id' => 'int',
-		'province_id' => 'int',
-		'price' => 'float',
-		'price_type_id' => 'int',
-		'is_disabled' => 'int',
-		'area' => 'float',
-		'priority' => 'int',
-		'deposit_amount' => 'float',
-		'created_by' => 'int'
-	];
+    protected $casts = [
+        'category_id' => 'int',
+        'street_id' => 'int',
+        'ward_id' => 'int',
+        'district_id' => 'int',
+        'province_id' => 'int',
+        'price' => 'float',
+        'price_type_id' => 'int',
+        'is_disabled' => 'int',
+        'area' => 'float',
+        'priority' => 'int',
+        'deposit_amount' => 'float',
+        'created_by' => 'int'
+    ];
 
-	protected $dates = [
-		'expired_at'
-	];
+    protected $dates = [
+        'expired_at'
+    ];
 
-	protected $fillable = [
-		'title',
-		'description',
-		'category_id',
-		'street_id',
-		'ward_id',
-		'district_id',
-		'province_id',
-		'address_detail',
-		'price',
-		'price_type_id',
-		'is_disabled',
-		'area',
-		'priority',
-		'expired_at',
-		'deposit_amount',
-		'status',
-		'slug',
-		'img',
-		'created_by'
-	];
-    public function scopePostDetail($query) {
-        return $query->leftJoin("post_category" , "post.category_id" , "=" , "post_category.id")
-            ->leftJoin("province" , "post.province_id" , "=" , "province.id")
-            ->leftJoin("district" , "post.district_id" , "=" , "district.id")
-            ->leftJoin("ward" , "post.ward_id" , "=" , "ward.id")
-            ->leftJoin("street" , "post.street_id" , "=" , "street.id")
-            ->leftJoin("post_premium_type" , "post.price_type_id" , "=" , "post_premium_type.id")
-            ->leftJoin("users" , "post.created_by" , "=" , "users.id")
+    protected $fillable = [
+        'title',
+        'description',
+        'category_id',
+        'street_id',
+        'ward_id',
+        'district_id',
+        'province_id',
+        'address_detail',
+        'price',
+        'price_type_id',
+        'is_disabled',
+        'area',
+        'priority',
+        'expired_at',
+        'deposit_amount',
+        'status',
+        'slug',
+        'img',
+        'created_by',
+        'created_at'
+    ];
+
+    public function scopePostDetail($query)
+    {
+        return $query->leftJoin("post_category", "post.category_id", "=", "post_category.id")
+            ->leftJoin("province", "post.province_id", "=", "province.id")
+            ->leftJoin("district", "post.district_id", "=", "district.id")
+            ->leftJoin("ward", "post.ward_id", "=", "ward.id")
+            ->leftJoin("street", "post.street_id", "=", "street.id")
+            ->leftJoin("post_premium_type", "post.price_type_id", "=", "post_premium_type.id")
+            ->leftJoin("users", "post.created_by", "=", "users.id")
             ->selectRaw("post.* , post_category.name as category_name ,
                                 province.name as province_name ,district.name as district_name ,  ward.name as ward_name ,street.name as street_name ,
                                 post_premium_type.premium_type as post_premium_type  , post_premium_type.unit  , post_premium_type.price_per_unit  ,users.name as  user_name  ");
     }
 
+    public function getDiffInDateAttribute()
+    {
+       return $this->created_at != null ? now()->diffForHumans($this->created_at) : "";
+    }
+    public function scopePostItem($query) {
+        return $query->leftJoin("post_category", "post.category_id", "=", "post_category.id")
+            ->selectRaw("post.* , post_category.name as category_name , post_category.description as category_description");
+    }
 
 }

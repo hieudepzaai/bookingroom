@@ -32,7 +32,7 @@
 
 <script>
     $(document).ready(function () {
-        $("#slider").lightSlider({
+        $(".post-slider").lightSlider({
             loop: true,
             keyPress: true,
             item: 4,

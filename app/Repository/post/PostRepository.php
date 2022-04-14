@@ -50,22 +50,22 @@ class PostRepository implements PostRepositoryInterface
     }
 
     public function getSharedRoomPost() {
-        return $this->model->whereCategoryId('4')->limit(8)->latest()->get();
+        return $this->model->PostItem()->whereCategoryId('4')->limit(8)->latest()->get();
 
     }
     public function getForRentRoomPost() {
-        return $this->model->whereCategoryId('2')->limit(8)->latest()->get();
+        return $this->model->PostItem()->whereCategoryId('2')->limit(8)->latest()->get();
     }
     public function getLatestPost() {
-        return $this->model->limit(8)->latest()->get();
+        return $this->model->PostItem()->limit(8)->latest()->get();
     }
     public function getForSoldPost() {
-        return $this->model->whereCategoryId('1')->limit(8)->latest()->get();
+        return $this->model->PostItem()->whereCategoryId('1')->limit(8)->latest()->get();
 
     }
     public function getFindRoomPost()
     {
-        return $this->model->whereCategoryId('3')->limit(8)->latest()->get();
+        return $this->model->PostItem()->whereCategoryId('3')->limit(8)->latest()->get();
     }
 
     public function getPostByCategoryId($category_id)

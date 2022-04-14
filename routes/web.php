@@ -14,5 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', [\App\Http\Controllers\FrondEnd\post\ClientPostController::class , 'home'])->name("frontend.index");
 
+Route::get('/post/{id}', [\App\Http\Controllers\FrondEnd\post\ClientPostController::class , 'detail'])->name("frontend.detail");
 
 

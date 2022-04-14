@@ -13,11 +13,17 @@ class ClientPostController extends Controller
         $this->repo = $postRepository;
     }
     public function home() {
-
+//       return  $this->repo->getForSoldPost() ;
         return view('frontend.page.home.index'  , [
             'for_sold_posts' => $this->repo->getForSoldPost() ,
             'for_rent_posts' => $this->repo->getForRentRoomPost() ,
 
+        ]);
+    }
+    public function detail($id) {
+
+        return view('frontend.page.post.detail' ,[
+            "post" => $this->repo->get($id)
         ]);
     }
 
