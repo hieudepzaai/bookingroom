@@ -50,12 +50,12 @@ Route::get('ward/getWardByDistrictId/{id}', [\App\Http\Controllers\BackEnd\addre
 
 Route::get('street/getByName', [\App\Http\Controllers\BackEnd\address\StreetController::class , 'getStreetByName'])->name('street.getByName');
 
-Route::get('categories', [\App\Http\Controllers\BackEnd\PostCategory\PostCategoryController::class, 'getAll'])->name('category.getAll');
+Route::get('categories', [\App\Http\Controllers\BackEnd\postCategory\PostCategoryController::class, 'getAll'])->name('category.getAll');
 Route::get('premiumTypes', [\App\Http\Controllers\BackEnd\post\PostPremiumTypeController::class, 'getAllPremiumPriceType'])->name('postPremium.getAll');
 
 
-Route::get('config', [\App\Http\Controllers\BackEnd\Config\ConfigController::class, 'getConstant']);
-Route::get('config/getByKey', [\App\Http\Controllers\BackEnd\Config\ConfigController::class, 'getConfig'])->name("config.getByKey");
+Route::get('config', [\App\Http\Controllers\BackEnd\config\ConfigController::class, 'getConstant']);
+Route::get('config/getByKey', [\App\Http\Controllers\BackEnd\config\ConfigController::class, 'getConfig'])->name("config.getByKey");
 
 Route::get('lorem', [\App\Http\Controllers\LoremController::class, 'getLoremImg']);
 

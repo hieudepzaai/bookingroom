@@ -11,5 +11,14 @@ interface PostRepositoryInterface
     public function getAll();
     public function delete($id);
     public function update($id ,  $data);
+    public function getSharedRoomPost() ;
+    public function getForRentRoomPost() ;
+    public function getLatestPost() ;
+    public function getForSoldPost() ;
+    public function getFindRoomPost() ;
+    public function getPostByCategoryId($category_id) ;
+    public function getPostByStreetId($street_id) ;
+    public function getPostByWardId($street_id) ;
+    public function getPostByProvinceId($street_id) ;
 
 }

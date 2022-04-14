@@ -48,4 +48,43 @@ class PostRepository implements PostRepositoryInterface
     {
         return $this->model->paginate(\Config::get("AppConstant.items_per_page"));
     }
+
+    public function getSharedRoomPost() {
+        return $this->model->whereCategoryId('4')->limit(8)->latest()->get();
+
+    }
+    public function getForRentRoomPost() {
+        return $this->model->whereCategoryId('2')->limit(8)->latest()->get();
+    }
+    public function getLatestPost() {
+        return $this->model->limit(8)->latest()->get();
+    }
+    public function getForSoldPost() {
+        return $this->model->whereCategoryId('1')->limit(8)->latest()->get();
+
+    }
+    public function getFindRoomPost()
+    {
+        return $this->model->whereCategoryId('3')->limit(8)->latest()->get();
+    }
+
+    public function getPostByCategoryId($category_id)
+    {
+        // TODO: Implement getPostByCategoryId() method.
+    }
+
+    public function getPostByStreetId($street_id)
+    {
+        // TODO: Implement getPostByStreetId() method.
+    }
+
+    public function getPostByWardId($street_id)
+    {
+        // TODO: Implement getPostByWardId() method.
+    }
+
+    public function getPostByProvinceId($street_id)
+    {
+        // TODO: Implement getPostByProvinceId() method.
+    }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\BackEnd\PostCategory;
+namespace App\Http\Controllers\BackEnd\postCategory;
 
 use App\Http\Controllers\Controller;
 use App\Models\PostCategory;

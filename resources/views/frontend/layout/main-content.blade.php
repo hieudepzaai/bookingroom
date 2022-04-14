@@ -1,97 +1,34 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
-    <link href="/client/resources/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<!--    <script src="https://kit.fontawesome.com/b786a26b02.js" crossorigin="anonymous"></script>-->
-    <link rel="stylesheet" href="resources/plugin/lightSlider/css/lightslider.min.css">
-    <script src="/client/resources/js/b786a26b02.js"></script>
-    <link rel="stylesheet" href="/client/resources/css/style.css">
-    <link rel="stylesheet" href="/client/resources/css/post.css">
-</head>
-<body >
-<nav class="navbar navbar-expand-lg navbar-light bg-yl">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/"><img src="/client/resources/img/logo.webp" alt=""></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-end w-100 my-navlink">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-house-door-fill"></i> Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"> <i class="bi bi-file-text"></i> New post</a>
-                </li>
-                <li class="nav-item">
-                     <a class="nav-link" href="#"> <i class="bi bi-bell-fill"></i>  notification</a>
-                </li>
-
-
-                <li class="">
-                    <a class="nav-link btn btn-success text-white nav-btn" href="#"> <i class="bi bi-bell-fill"></i>  Register</a>
-                </li>
-                <li class="">
-                    <a class="nav-link btn btn-danger text-white nav-btn " href="#"> <i class="bi bi-bell-fill"></i>  New Post</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle  btn btn-secondary text-white " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa-regular fa-user"></i>  Account
-                    </a>
-                    <ul class="dropdown-menu custom-dropdown" aria-labelledby="navbarDropdown">
-                        <li ><a class="dropdown-item " href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
-            </ul>
-
-        </div>
-
-    </div>
-</nav>
-
 <!--slider-->
 <div class="container section w-100">
     <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="10000">
                 <img src="/client/resources/img/banner1.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-<!--                    <h5>First slide label</h5>-->
-<!--                    <p>Some representative placeholder content for the first slide.</p>-->
+                    <!--                    <h5>First slide label</h5>-->
+                    <!--                    <p>Some representative placeholder content for the first slide.</p>-->
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="2000">
                 <img src="/client/resources/img/banner2.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-<!--                    <h5>Second slide label</h5>-->
-<!--                    <p>Some representative placeholder content for the second slide.</p>-->
+                    <!--                    <h5>Second slide label</h5>-->
+                    <!--                    <p>Some representative placeholder content for the second slide.</p>-->
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="/client/resources/img/banner3.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-<!--                    <h5>Third slide label</h5>-->
-<!--                    <p>Some representative placeholder content for the third slide.</p>-->
+                    <!--                    <h5>Third slide label</h5>-->
+                    <!--                    <p>Some representative placeholder content for the third slide.</p>-->
                 </div>
             </div>
         </div>
@@ -137,8 +74,7 @@
                     </div>
 
 
-
-                    <button class="btn btn-danger "> <i class="bi bi-funnel" type="submit"> Filter</i>
+                    <button class="btn btn-danger "><i class="bi bi-funnel" type="submit"> Filter</i>
                     </button>
                 </form>
                 <!--            <a class="btn btn-primary show-filter-btn" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">-->
@@ -253,7 +189,7 @@
                             <p class="post-name">Post Name</p>
                             <span>45 m2</span>
                             <p class="text-danger post-price">500.000.000 vnd/tháng </p>
-                            <p class="text-secondary post-date">10 giờ trước  </p>
+                            <p class="text-secondary post-date">10 giờ trước </p>
 
                         </div>
                     </a>
@@ -289,7 +225,7 @@
                             <p class="post-name">Post Name</p>
                             <span>45 m2</span>
                             <p class="text-danger post-price">500.000.000 vnd/tháng </p>
-                            <p class="text-secondary post-date">10 giờ trước  </p>
+                            <p class="text-secondary post-date">10 giờ trước </p>
 
                         </div>
                     </a>
@@ -325,7 +261,7 @@
                             <p class="post-name">Post Name</p>
                             <span>45 m2</span>
                             <p class="text-danger post-price">500.000.000 vnd/tháng </p>
-                            <p class="text-secondary post-date">10 giờ trước  </p>
+                            <p class="text-secondary post-date">10 giờ trước </p>
 
                         </div>
                     </a>
@@ -361,7 +297,7 @@
                             <p class="post-name">Post Name</p>
                             <span>45 m2</span>
                             <p class="text-danger post-price">500.000.000 vnd/tháng </p>
-                            <p class="text-secondary post-date">10 giờ trước  </p>
+                            <p class="text-secondary post-date">10 giờ trước </p>
 
                         </div>
                     </a>
@@ -397,7 +333,7 @@
                             <p class="post-name">Post Name</p>
                             <span>45 m2</span>
                             <p class="text-danger post-price">500.000.000 vnd/tháng </p>
-                            <p class="text-secondary post-date">10 giờ trước  </p>
+                            <p class="text-secondary post-date">10 giờ trước </p>
 
                         </div>
                     </a>
@@ -433,7 +369,7 @@
                             <p class="post-name">Post Name</p>
                             <span>45 m2</span>
                             <p class="text-danger post-price">500.000.000 vnd/tháng </p>
-                            <p class="text-secondary post-date">10 giờ trước  </p>
+                            <p class="text-secondary post-date">10 giờ trước </p>
 
                         </div>
                     </a>
@@ -469,7 +405,7 @@
                             <p class="post-name">Post Name</p>
                             <span>45 m2</span>
                             <p class="text-danger post-price">500.000.000 vnd/tháng </p>
-                            <p class="text-secondary post-date">10 giờ trước  </p>
+                            <p class="text-secondary post-date">10 giờ trước </p>
 
                         </div>
                     </a>
@@ -493,44 +429,8 @@
                 </a>
             </div>
         </div>
-        <div class="row" >
+        <div class="row">
 
-            <div class="col-md-3 ">
-
-                    <div class="post-item-container w-100 shadow  ">
-                        <div class="featured">
-                            <div class="ribbon">Vip</div>
-                        </div>
-                        <a class="like-btn liked">
-                            <i class="fa-brands fa-gratipay"></i>
-                        </a>
-                        <a href="/detail.html" class="post-item-link-wrapper">
-                            <div class="post-item-img-container w-100 ">
-                                <img class="post-item-img" src="/client/resources/img/land2.jpg" alt="">
-                                <div class="img-count">
-                                    <i class="fa-solid fa-images"></i> <span>20</span>
-                                </div>
-                            </div>
-                            <div class="w-100 post-item-body ">
-                                <div>
-                                    <span class="badge bg-success">Success</span>
-                                    <span class="badge bg-primary">Ở ghép</span>
-                                    <span class="badge bg-info">cho thuê chung cư</span>
-                                    <span class="badge bg-danger">Bán nhà</span>
-                                    <span class="badge bg-primary">Ở ghép</span>
-
-
-                                </div>
-                                <p class="post-name">Post Name</p>
-                                <span>45 m2</span>
-                                <p class="text-danger post-price">500.000.000 vnd/tháng </p>
-                                <p class="text-secondary post-date">10 giờ trước  </p>
-
-                            </div>
-                        </a>
-                    </div>
-
-            </div>
             <div class="col-md-3 ">
 
                 <div class="post-item-container w-100 shadow  ">
@@ -560,7 +460,7 @@
                             <p class="post-name">Post Name</p>
                             <span>45 m2</span>
                             <p class="text-danger post-price">500.000.000 vnd/tháng </p>
-                            <p class="text-secondary post-date">10 giờ trước  </p>
+                            <p class="text-secondary post-date">10 giờ trước </p>
 
                         </div>
                     </a>
@@ -596,7 +496,7 @@
                             <p class="post-name">Post Name</p>
                             <span>45 m2</span>
                             <p class="text-danger post-price">500.000.000 vnd/tháng </p>
-                            <p class="text-secondary post-date">10 giờ trước  </p>
+                            <p class="text-secondary post-date">10 giờ trước </p>
 
                         </div>
                     </a>
@@ -632,7 +532,7 @@
                             <p class="post-name">Post Name</p>
                             <span>45 m2</span>
                             <p class="text-danger post-price">500.000.000 vnd/tháng </p>
-                            <p class="text-secondary post-date">10 giờ trước  </p>
+                            <p class="text-secondary post-date">10 giờ trước </p>
 
                         </div>
                     </a>
@@ -668,7 +568,7 @@
                             <p class="post-name">Post Name</p>
                             <span>45 m2</span>
                             <p class="text-danger post-price">500.000.000 vnd/tháng </p>
-                            <p class="text-secondary post-date">10 giờ trước  </p>
+                            <p class="text-secondary post-date">10 giờ trước </p>
 
                         </div>
                     </a>
@@ -704,7 +604,7 @@
                             <p class="post-name">Post Name</p>
                             <span>45 m2</span>
                             <p class="text-danger post-price">500.000.000 vnd/tháng </p>
-                            <p class="text-secondary post-date">10 giờ trước  </p>
+                            <p class="text-secondary post-date">10 giờ trước </p>
 
                         </div>
                     </a>
@@ -740,19 +640,54 @@
                             <p class="post-name">Post Name</p>
                             <span>45 m2</span>
                             <p class="text-danger post-price">500.000.000 vnd/tháng </p>
-                            <p class="text-secondary post-date">10 giờ trước  </p>
+                            <p class="text-secondary post-date">10 giờ trước </p>
 
                         </div>
                     </a>
                 </div>
 
             </div>
+            <div class="col-md-3 ">
 
+                <div class="post-item-container w-100 shadow  ">
+                    <div class="featured">
+                        <div class="ribbon">Vip</div>
+                    </div>
+                    <a class="like-btn liked">
+                        <i class="fa-brands fa-gratipay"></i>
+                    </a>
+                    <a href="/detail.html" class="post-item-link-wrapper">
+                        <div class="post-item-img-container w-100 ">
+                            <img class="post-item-img" src="/client/resources/img/land2.jpg" alt="">
+                            <div class="img-count">
+                                <i class="fa-solid fa-images"></i> <span>20</span>
+                            </div>
+                        </div>
+                        <div class="w-100 post-item-body ">
+                            <div>
+                                <span class="badge bg-success">Success</span>
+                                <span class="badge bg-primary">Ở ghép</span>
+                                <span class="badge bg-info">cho thuê chung cư</span>
+                                <span class="badge bg-danger">Bán nhà</span>
+                                <span class="badge bg-primary">Ở ghép</span>
+
+
+                            </div>
+                            <p class="post-name">Post Name</p>
+                            <span>45 m2</span>
+                            <p class="text-danger post-price">500.000.000 vnd/tháng </p>
+                            <p class="text-secondary post-date">10 giờ trước </p>
+
+                        </div>
+                    </a>
+                </div>
+
+            </div>
 
 
             <div class="col-12">
                 <div class="w-100 text-center">
-<!--                    <span class="badge bg-success">Success</span>-->
+                    <!--                    <span class="badge bg-success">Success</span>-->
                     <a class="badge bg-success" href="">Xem thêm ></a>
 
                 </div>
@@ -804,7 +739,7 @@
                             <p class="post-name">Post Name</p>
                             <span>45 m2</span>
                             <p class="text-danger post-price">500.000.000 vnd/tháng </p>
-                            <p class="text-secondary post-date">10 giờ trước  </p>
+                            <p class="text-secondary post-date">10 giờ trước </p>
 
                         </div>
                     </a>
@@ -840,7 +775,7 @@
                             <p class="post-name">Post Name</p>
                             <span>45 m2</span>
                             <p class="text-danger post-price">500.000.000 vnd/tháng </p>
-                            <p class="text-secondary post-date">10 giờ trước  </p>
+                            <p class="text-secondary post-date">10 giờ trước </p>
 
                         </div>
                     </a>
@@ -876,7 +811,7 @@
                             <p class="post-name">Post Name</p>
                             <span>45 m2</span>
                             <p class="text-danger post-price">500.000.000 vnd/tháng </p>
-                            <p class="text-secondary post-date">10 giờ trước  </p>
+                            <p class="text-secondary post-date">10 giờ trước </p>
 
                         </div>
                     </a>
@@ -912,7 +847,7 @@
                             <p class="post-name">Post Name</p>
                             <span>45 m2</span>
                             <p class="text-danger post-price">500.000.000 vnd/tháng </p>
-                            <p class="text-secondary post-date">10 giờ trước  </p>
+                            <p class="text-secondary post-date">10 giờ trước </p>
 
                         </div>
                     </a>
@@ -948,7 +883,7 @@
                             <p class="post-name">Post Name</p>
                             <span>45 m2</span>
                             <p class="text-danger post-price">500.000.000 vnd/tháng </p>
-                            <p class="text-secondary post-date">10 giờ trước  </p>
+                            <p class="text-secondary post-date">10 giờ trước </p>
 
                         </div>
                     </a>
@@ -984,7 +919,7 @@
                             <p class="post-name">Post Name</p>
                             <span>45 m2</span>
                             <p class="text-danger post-price">500.000.000 vnd/tháng </p>
-                            <p class="text-secondary post-date">10 giờ trước  </p>
+                            <p class="text-secondary post-date">10 giờ trước </p>
 
                         </div>
                     </a>
@@ -1020,7 +955,7 @@
                             <p class="post-name">Post Name</p>
                             <span>45 m2</span>
                             <p class="text-danger post-price">500.000.000 vnd/tháng </p>
-                            <p class="text-secondary post-date">10 giờ trước  </p>
+                            <p class="text-secondary post-date">10 giờ trước </p>
 
                         </div>
                     </a>
@@ -1040,49 +975,3 @@
 </div>
 
 <!--end section specific-->
-
-<div class="footer w-100 bg-yl">
-    <span class="text-white fw-bold">Copyright @2022</span>
-</div>
-</body>
-<script src="/client/resources/js/bootstrap.bundle.min.js" ></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<script src="/client/resources/plugin/lightSlider/js/lightslider.min.js"></script>
-<script>
-    $(".js-example-placeholder-single").select2({
-        placeholder: "select",
-        allowClear: true,
-    });
-
-
-</script>
-
-<script>
-    $(document).ready(function() {
-        $("#slider").lightSlider({
-            loop:true,
-            keyPress:true,
-            item: 4,
-            responsive : [
-                {
-                    breakpoint:800,
-                    settings: {
-                        item:3,
-                        slideMove:1,
-                        slideMargin:6,
-                    }
-                },
-                {
-                    breakpoint:480,
-                    settings: {
-                        item:2,
-                        slideMove:1
-                    }
-                }
-            ]
-        });
-
-    });
-</script>
-</html>
